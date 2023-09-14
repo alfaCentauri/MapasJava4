@@ -42,7 +42,11 @@ public class Ejecutable {
         String result="";
         String[] arrString = nameTag.split(",");
         Map auxForSearch = input;
-        for (String tag : arrString) { //con indice
+        int tottalArray = arrString.length;
+        for (int i=0; i < tottalArray; i ++) {
+            String tag = arrString[i];
+            //Debug
+            System.out.println("Buscando la etiqqueta: " + tag);
             if ( auxForSearch.containsKey(tag) && ( auxForSearch.get(tag) instanceof String ) ) {
                 result = (String) auxForSearch.get(tag);
             }
@@ -55,11 +59,18 @@ public class Ejecutable {
                     //Debug
                     System.out.println("El nivel de la recursividad es: " + nivel++);
                     System.out.println("Buscando: " + tag + " en el map: " + mapElement);
-                    // tagToFind = arrString[i+1];
-                    result = getValueFromTag( nameTag, mapElement, nivel );//Siempre es vacio, colocar el nivel como parametro
+                    if( i+1 < tottalArray ) {
+                        String tagToFind = arrString[i + 1];
+                        result = getValueFromTag(tagToFind, mapElement, nivel);
+                    }
+                    else {
+                        break;
+                    }
                 }
             }
         }
+        //Debug
+        System.out.println("El resultado es: " + result);
         return result;
     }
 }
