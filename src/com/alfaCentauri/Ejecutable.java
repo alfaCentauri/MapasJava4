@@ -46,7 +46,7 @@ public class Ejecutable {
         for (int i=0; i < tottalArray; i ++) {
             String tag = arrString[i];
             //Debug
-            System.out.println("Buscando la etiqqueta: " + tag);
+            System.out.println("Buscando la etiqueta: " + tag);
             if ( auxForSearch.containsKey(tag) && ( auxForSearch.get(tag) instanceof String ) ) {
                 result = (String) auxForSearch.get(tag);
             }
